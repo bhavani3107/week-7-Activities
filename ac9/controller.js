@@ -29,10 +29,10 @@ const renderLocationForm = (req, res) => {
 // Controller function to handle adding a new location (used for rendering and API)
 const addLocationEjs = async (req, res) => {
   try {
-    const { title, description, targetDate } = req.body;
+    const { name, address, latitude, longitude } = req.body;
     // Convert the achieved field to a Boolean
     const achieved = req.body.achieved === "true";
-    const newLocation = new Location({ title, description, targetDate, achieved });
+    const newLocation = new Location({ name, address, latitude, longitude });
     await newLocation.save();
     // Redirect to the main page after successfully adding the location
     res.redirect("/"); // Adjust the URL as needed
@@ -45,8 +45,8 @@ const addLocationEjs = async (req, res) => {
 // Add one Location
 const addLocation = async (req, res) => {
   try {
-    const { title, description, targetDate, achieved } = req.body;
-    const newLocation = new Location({ title, description, targetDate, achieved });
+    const { name, address, latitude, longitude } = req.body;
+    const newLocation = new Location({ name, address, latitude, longitude });
     await newLocation.save();
 
     // Render the newly added location

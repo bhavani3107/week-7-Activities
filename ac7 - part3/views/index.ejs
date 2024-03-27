@@ -1,0 +1,29 @@
+<!-- Define a function to render each message -->
+<% function renderMessage(message) { %>
+    <li>
+      <strong>Title:</strong> <%= message.title %><br />
+      <strong>Description:</strong> <%= message.description %><br />
+      <strong>Target Date:</strong> <%= message.targetDate %><br />
+      <strong>Achieved:</strong> <%= message.achieved %>
+    </li>
+    <% } %>
+    
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Messages</title>
+        <link rel="stylesheet" href="/styles.css"> <!-- Link to external stylesheet -->
+      </head>
+      <body>
+        <h1>Messages List</h1>
+        <ul>
+          <% if (messages.length > 0) { %>
+          <!-- Call the renderMessage function for each message -->
+          <% messages.forEach(renderMessage); %> <% } else { %>
+          <li>No messages found.</li>
+          <% } %>
+        </ul>
+      </body>
+    </html>
